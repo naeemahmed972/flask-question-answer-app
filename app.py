@@ -4,7 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24)
+# app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SECRET_KEY'] = b'!~\xf5|\x83\xc1\x16\x98\x93\xbbtI\x99\xe5\xc7F\xf4W\x11A\xd8\xbd\x88\x0f'
 
 
 
