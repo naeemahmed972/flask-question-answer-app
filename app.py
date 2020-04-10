@@ -160,7 +160,7 @@ def ask():
     if (user['expert'] == True or user['admin'] == True):
         return redirect(url_for('index'))
 
-    expert_cur = db.execute('SELECT id, name FROM users WHERE expert=true')
+    expert_cur = db.execute('SELECT id, name FROM users WHERE expert = ?', [True])
     expert_results = expert_cur.fetchall()
 
     # handling the POST request
@@ -224,7 +224,7 @@ def promote(user_id):
         return redirect(url_for('index'))
 
     db=get_db()
-    db.execute('UPDATE users SET expert=true WHERE id=?', [user_id])
+    db.execute('UPDATE users SET expert = ? WHERE id = ?', [True, user_id])
     db.commit()
     return redirect(url_for('users'))
 
